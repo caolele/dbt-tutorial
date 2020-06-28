@@ -7,7 +7,7 @@ version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-# database connection information should be configured in the  ~/.dbt/profiles.yml file
+# database connection should be configured in the  ~/.dbt/profiles.yml file
 profile: 'baozi_tan'
 
 # These configurations specify where dbt should look for different types of files.
@@ -34,6 +34,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   baozi_tan:
-      # Applies to all files under models/example/
-      example:
+      # By default, it is view
+      materialized: view
+      staging:
           materialized: view
